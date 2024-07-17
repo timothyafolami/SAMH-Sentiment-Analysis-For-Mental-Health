@@ -1,0 +1,7 @@
+fastapi
+scikit-learn==1.4.2
+pandas 
+numpy
+uvicorn
+notebook
+nltk
