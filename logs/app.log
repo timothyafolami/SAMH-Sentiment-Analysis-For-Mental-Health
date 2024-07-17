@@ -2199,3 +2199,5 @@ Personality disorder       0.80      0.46      0.58       222
 2024-07-17 02:42:11 - INFO - Making prediction...
 2024-07-17 02:42:11 - INFO - Prediction: ['Depression']
 2024-07-17 02:42:11 - INFO - Prediction result: Depression
+2024-07-17 03:59:25 - INFO - Sending GET request to https://raw.githubusercontent.com/timothyafolami/SAMH-Sentiment-Analysis-For-Mental-Health/master/data/Combined%20Data.csv
+2024-07-17 03:59:25 - ERROR - Failed to download data. Status code: 404

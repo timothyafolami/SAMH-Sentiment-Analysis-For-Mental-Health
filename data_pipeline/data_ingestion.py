@@ -29,7 +29,7 @@ def download_data(url, save_path):
 
 if __name__ == "__main__":
     # URL of the dataset
-    dataset_url = "https://raw.githubusercontent.com/timothyafolami/SAMH-Sentiment-Analysis-For-Mental-Health/master/data/Combined%20Data.csv"
+    dataset_url = "https://raw.githubusercontent.com/timothyafolami/SAMH-Sentiment-Analysis-For-Mental-Health/master/data/Combined_Data.csv"
     
     # Path to save the dataset
     save_file_path = os.path.join("./data", "Combined_Data.csv")

@@ -1,12 +1,12 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import uvicorn
-import sys
-import os
+import os, sys
 
 # Add the root directory to sys.path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from model_pipeline.model_predict import load_model, predict
 from logging_config.logger_config import get_logger
 
@@ -23,27 +23,22 @@ model = load_model()
 class TextInput(BaseModel):
     text: str
 
-@app.get("/")
+# Mount the static files directory
+app.mount("/static", StaticFiles(directory="fastapi_app/static"), name="static")
+
+@app.get("/", response_class=HTMLResponse)
 def read_root():
-    """
-    Home endpoint that provides basic information about the app.
-    """
-    logger.info("Home endpoint accessed.")
-    return {"message": "Welcome to the Sentiment Analysis API. Use /predict_sentiment to get predictions."}
+    with open("fastapi_app/static/index.html") as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content, status_code=200)
 
 @app.get("/health")
 def health_check():
-    """
-    Health check endpoint to ensure the app is running correctly.
-    """
     logger.info("Health check endpoint accessed.")
     return {"status": "ok"}
 
 @app.post("/predict_sentiment")
 def predict_sentiment(input_data: TextInput):
-    """
-    Endpoint to predict the sentiment of the input text.
-    """
     logger.info(f"Prediction request received with text: {input_data.text}")
     prediction = predict(input_data.text, model)
     logger.info(f"Prediction result: {prediction}")

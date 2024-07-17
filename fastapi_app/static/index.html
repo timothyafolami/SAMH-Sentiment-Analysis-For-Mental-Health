@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis for Mental Health</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis for Mental Health</h1>
+        <p>This application uses a machine learning model to analyze the sentiment of text data related to mental health. It helps in understanding the sentiment expressed in user-generated content, such as social media posts or survey responses.</p>
+        <p>Enter a sentence below to predict its sentiment as positive, negative, or neutral.</p>
+        <textarea id="textInput" rows="4" placeholder="Enter your text here..."></textarea>
+        <button onclick="predictSentiment()">Predict Sentiment</button>
+        <div id="output"></div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
