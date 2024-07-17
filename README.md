@@ -1,4 +1,5 @@
 # Sentiment Analysis API
+![alt text](image.png)
 
 This project provides a sentiment analysis API using FastAPI and a machine learning model trained on textual data.
 
