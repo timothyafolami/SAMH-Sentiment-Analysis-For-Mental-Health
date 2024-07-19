@@ -5,15 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment Analysis for Mental Health</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container animate__animated animate__fadeIn">
         <h1>Sentiment Analysis for Mental Health</h1>
         <p>This application uses a machine learning model to analyze the sentiment of text data related to mental health. It helps in understanding the sentiment expressed in user-generated content, such as social media posts or survey responses.</p>
-        <p>Enter a sentence below to predict its sentiment as positive, negative, or neutral.</p>
-        <textarea id="textInput" rows="4" placeholder="Enter your text here..."></textarea>
-        <button onclick="predictSentiment()">Predict Sentiment</button>
-        <div id="output"></div>
+        <p>Enter a sentence below to predict its sentiment as Normal, Depression, Suicidal, Anxiety, Stress, Bi-Polar, or Personality Disorder.</p>
+        
+        <textarea id="textInput" rows="4" placeholder="Enter your text here..." class="animate__animated animate__fadeInLeft"></textarea>
+        <button onclick="predictSentiment()" class="animate__animated animate__fadeInRight">Predict Sentiment</button>
+        
+        <div id="results" class="animate__animated animate__fadeInUp">
+            <h2>Results:</h2>
+            <p><strong>Initial Model Prediction:</strong> <span id="initialPrediction"></span></p>
+            <p><strong>LLaMA 3 Category:</strong> <span id="llamaCategory"></span></p>
+            <p><strong>LLaMA 3 Explanation:</strong> <span id="llamaExplanation"></span></p>
+            
+            <h2>Rate the Accuracy of the Prediction:</h2>
+            <div class="rating animate__animated animate__fadeIn">
+                <i class="fas fa-star" onclick="rate(1)"></i>
+                <i class="fas fa-star" onclick="rate(2)"></i>
+                <i class="fas fa-star" onclick="rate(3)"></i>
+                <i class="fas fa-star" onclick="rate(4)"></i>
+                <i class="fas fa-star" onclick="rate(5)"></i>
+            </div>
+            <input type="hidden" id="userRating" value="0">
+        </div>
+        
+        <button onclick="submitInteraction()" class="animate__animated animate__fadeIn">Submit Rating</button>
     </div>
     <script src="/static/script.js"></script>
 </body>

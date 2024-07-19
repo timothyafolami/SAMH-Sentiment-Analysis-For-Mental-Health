@@ -42,14 +42,37 @@ button {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
 }
 
 button:hover {
     background-color: #218838;
 }
 
-#output {
+#results {
     margin-top: 20px;
-    font-size: 18px;
+    text-align: left;
     color: #fff;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.rating .fa-star {
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.rating .fa-star:hover,
+.rating .fa-star:hover ~ .fa-star {
+    color: #ffd700;
+}
+
+.rating .fa-star.selected {
+    color: #ffd700;
 }

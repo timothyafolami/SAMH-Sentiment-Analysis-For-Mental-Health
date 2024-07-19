@@ -1,0 +1,4 @@
+1. connect a database
+2. save the data to a database
+3. add llm api_prediction to the project using Groq and llama 3 8b 
+4. Update the output into two outputs, one for the model prediction, the other for llm prediction. 
